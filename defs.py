@@ -33,26 +33,26 @@ def jogo()->list:
 
     cartinha2 = pegar_carta(baralho)
     carta = baralho[cartinha2[1]][cartinha2[2]]
-    baralho[cartinha1[1]].pop(cartinha1[2])
+    baralho[cartinha2[1]].pop(cartinha2[2])
     soma1 = soma1 + recebeString(carta)
 
     cartinha3 = pegar_carta(baralho)
     carta = baralho[cartinha3[1]][cartinha3[2]]
-    baralho[cartinha1[1]].pop(cartinha1[2])
+    baralho[cartinha3[1]].pop(cartinha3[2])
     soma2 = soma2 + recebeString(carta)
 
     cartinha4 = pegar_carta(baralho)
     carta = baralho[cartinha4[1]][cartinha4[2]]
-    baralho[cartinha1[1]].pop(cartinha1[2])
+    baralho[cartinha4[1]].pop(cartinha4[2])
     soma2 = soma2 + recebeString(carta)
     if soma1 < 5:
         carta_extra = pegar_carta(baralho)
         carta = baralho[carta_extra[1]][carta_extra[2]]
-        baralho[cartinha1[1]].pop(cartinha1[2])
+        baralho[carta_extra[1]].pop(carta_extra[2])
         soma1 = soma1 + carta_extra[0]
     if soma2 < 5:
         carta_extra = pegar_carta(baralho)
         carta = baralho[carta_extra[1]][carta_extra[2]]
-        baralho[cartinha1[1]].pop(cartinha1[2])
+        baralho[carta_extra[1]].pop(carta_extra[2])
         soma2 = soma2 + carta_extra[0]
     return [soma1, soma2]
