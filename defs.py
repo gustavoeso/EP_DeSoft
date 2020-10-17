@@ -45,6 +45,10 @@ def jogo()->list:
     carta = baralho[cartinha4[1]][cartinha4[2]]
     baralho[cartinha4[1]].pop(cartinha4[2])
     soma2 = soma2 + recebeString(carta)
+    if soma1 >= 10:
+        soma1 = soma1 % 10
+    if soma2 >= 10:
+        soma2 = soma2 % 10
     if soma1 < 5:
         carta_extra = pegar_carta(baralho)
         carta = baralho[carta_extra[1]][carta_extra[2]]
