@@ -20,7 +20,7 @@ while(jogar == True):
             if (jogo1[0] > jogo1[1]):
                 print ('Ganhou a Mesa')
                 fichas += math.floor((aposta)*0.95)
-                comissão = (fichas * 1.06) - fichas
+                comissão = (aposta * 1.06) - aposta
                 fichas -= comissão
             else:
                 print('Perdeu')
@@ -29,7 +29,7 @@ while(jogar == True):
             if(jogo1[0] < jogo1[1]):
                 print ('Ganhou o Jogador')
                 fichas += aposta
-                comissão = (fichas * 1.24) - fichas
+                comissão = (aposta * 1.24) - aposta
                 fichas -= comissão
             else:
                 print('Perdeu')
@@ -38,7 +38,7 @@ while(jogar == True):
             if (jogo1[0] == jogo1[1]):
                 print ('Ganhou o Empate')
                 fichas += aposta * 8
-                comissão = (fichas * 14.36) - fichas
+                comissão = (aposta * 14.36) - aposta
                 fichas -= comissão
             else:
                 print('Perdeu')
