@@ -1,4 +1,5 @@
 import random
+import math
 
 def pegar_carta(baralho:list)->list:
     naipe = random.randint(0, 31)
@@ -60,3 +61,39 @@ def jogo()->list:
         baralho[carta_extra[1]].pop(carta_extra[2])
         soma2 = soma2 + carta_extra[0]
     return [soma1, soma2]
+
+def jogador(pergunta:str, jogo:list, aposta:int, fichas:int)-> list:
+    resultado = ""
+    fichas_novas = fichas
+    if aposta < fichas_novas:
+        if (pergunta == 'M'):
+            if (jogo[0] > jogo[1]):
+                resultado = 'Ganhou a Mesa'
+                fichas_novas += math.floor((aposta)*0.95)
+                comissão = (aposta * 1.06) - aposta
+                fichas_novas -= math.floor(comissão)
+            else:
+                resultado = 'A mesa perdeu'
+                fichas_novas -= math.floor((aposta)*0.95)
+        elif (pergunta == 'J'):
+            if(jogo[0] < jogo[1]):
+                resultado = 'Ganhou o Jogador'
+                fichas_novas += aposta
+                comissão = (aposta * 1.24) - aposta
+                fichas_novas -= math.floor(comissão)
+            else:
+                resultado = 'O jogador perdeu'
+                fichas_novas -= aposta
+        elif (pergunta =='E'):
+            if (jogo[0] == jogo[1]):
+                resultado = 'Ganhou o Empate'
+                fichas_novas += aposta * 8
+                comissão = (aposta * 14.36) - aposta
+                fichas_novas -= math.floor(comissão)
+            else:
+                resultado = 'O empate perdeu'
+                fichas_novas -= aposta * 8
+    else:
+        resultado = 'Algum jogador não tem fichas o suficiente, o que apostou mais do que deveria não foi considerado na rodada.'
+    
+    return [resultado, fichas_novas]
