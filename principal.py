@@ -5,7 +5,6 @@ import random
 import math
 import defs
 
-jogo1 = defs.jogo()
 
 fichas = 100
 
@@ -13,6 +12,7 @@ continua = input('Gostaria de Jogar? digite sim ou não: ')
 jogar = continua == 'sim'
 
 while(jogar == True):
+    jogo1 = defs.jogo()
     pergunta = input('Adivinhe quem vai ganhar: Mesa (M), Jogador (J) ou Empate (E): ')
     aposta = int(input('quantas fichas gostaria de apostar? você tem {} fichas: '.format(fichas)))
     if aposta < fichas:
@@ -21,7 +21,7 @@ while(jogar == True):
                 print ('Ganhou a Mesa')
                 fichas += math.floor((aposta)*0.95)
                 comissão = (aposta * 1.06) - aposta
-                fichas -= comissão
+                fichas -= math.floor(comissão)
             else:
                 print('Perdeu')
                 fichas -= math.floor((aposta)*0.95)
@@ -30,7 +30,7 @@ while(jogar == True):
                 print ('Ganhou o Jogador')
                 fichas += aposta
                 comissão = (aposta * 1.24) - aposta
-                fichas -= comissão
+                fichas -= math.floor(comissão)
             else:
                 print('Perdeu')
                 fichas -= aposta
@@ -39,7 +39,7 @@ while(jogar == True):
                 print ('Ganhou o Empate')
                 fichas += aposta * 8
                 comissão = (aposta * 14.36) - aposta
-                fichas -= comissão
+                fichas -= math.floor(comissão)
             else:
                 print('Perdeu')
                 fichas -= aposta * 8
