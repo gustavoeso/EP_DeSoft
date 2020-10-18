@@ -1,7 +1,7 @@
 import random
 
 def pegar_carta(baralho:list)->list:
-    naipe = random.randint(0, 15)
+    naipe = random.randint(0, 31)
     valor = random.randint(0, len(baralho[naipe])-1)
     numero = recebeString(baralho[naipe][valor])
     # a = str(baralho[naipe][valor])

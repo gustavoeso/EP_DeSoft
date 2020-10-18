@@ -20,6 +20,8 @@ while(jogar == True):
             if (jogo1[0] > jogo1[1]):
                 print ('Ganhou a Mesa')
                 fichas += math.floor((aposta)*0.95)
+                comissão = (fichas * 1.06) - fichas
+                fichas -= comissão
             else:
                 print('Perdeu')
                 fichas -= math.floor((aposta)*0.95)
@@ -27,18 +29,23 @@ while(jogar == True):
             if(jogo1[0] < jogo1[1]):
                 print ('Ganhou o Jogador')
                 fichas += aposta
+                comissão = (fichas * 1.24) - fichas
+                fichas -= comissão
             else:
                 print('Perdeu')
                 fichas -= aposta
         elif (pergunta =='E'):
             if (jogo1[0] == jogo1[1]):
                 print ('Ganhou o Empate')
-                fichas += fichas * 8
+                fichas += aposta * 8
+                comissão = (fichas * 14.36) - fichas
+                fichas -= comissão
             else:
                 print('Perdeu')
-                fichas -= fichas * 8
+                fichas -= aposta * 8
     else:
         print('Você não tem fichas o suficiente')
+    
     print('Suas fichas atuais: {}'.format(fichas))
     continua = input('gostaria de continuar? digite sim ou não: ')
     jogar = continua == 'sim'
