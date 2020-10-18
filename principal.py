@@ -52,3 +52,4 @@ while(jogar == True):
     if fichas <= 0:
         print('Você não tem fichas.')
         continua = False
+#teste
